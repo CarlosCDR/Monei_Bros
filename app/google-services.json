@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "763000483752",
+    "project_id": "money-bros",
+    "storage_bucket": "money-bros.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763000483752:android:7055739ef06e670ceab79d",
+        "android_client_info": {
+          "package_name": "com.github.leonardogabrielmg.moneibros"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763000483752-i2l4h10nki7ifuvvv3knrr7000rd5506.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.github.leonardogabrielmg.moneibros",
+            "certificate_hash": "0392033f1f6d53d0c83f30cd4d2cbe330edee229"
+          }
+        },
+        {
+          "client_id": "763000483752-2bb5lefsavq9jrdbclh1tm652b5rs9pv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLyrZlMKJVE6NUUJ8u7AvL7FgBOmyVjJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763000483752-2bb5lefsavq9jrdbclh1tm652b5rs9pv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
