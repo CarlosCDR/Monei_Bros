@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.github.leonardogabrielmg.moneibros.R;
+import com.github.leonardogabrielmg.moneibros.config.ConfiguracaoFireBase;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
     private GoogleSignInClient mGoogleSignInClient;
-    private final static int RC_SIGN_IN = 9001;
+
 
 
 
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         //recupera o token
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("") // falta passar o token
+                .requestIdToken("763000483752-2bb5lefsavq9jrdbclh1tm652b5rs9pv.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
@@ -60,10 +61,10 @@ public class MainActivity extends AppCompatActivity {
 
     //Metodo de Login com o google
     //abri o google intent
-    private void signIn(){
-        Intent intent = mGoogleSignInClient.getSignInIntent();
-        //startActivityForResult(intent, 1);
-        abreActivity.launch(intent);
+    private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        //startActivityForResult(signInIntent, 1);
+        abreActivity.launch(signInIntent);
     }
     ActivityResultLauncher<Intent> abreActivity = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(intent);
                     try{
                         GoogleSignInAccount conta = task.getResult(ApiException.class);
-                        //loginComGoogle(conta.getIdToken());
+                        loginComGoogle(conta.getIdToken());
                     } catch (ApiException exception){
                         Toast.makeText(this,
                                 "Nenhum usuário Google logado!", Toast.LENGTH_SHORT).show();
@@ -96,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 Toast.makeText(this,
                         "Erro ao efetuar Login com Google!", Toast.LENGTH_SHORT).show();
-
             }
         });
     }
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
     //verificando se o usuario esta realmente logado
     public void verificarUsuarioLogado(){
-        //autenticacao = ConfiguracaoFireBase.getFireBaseAutenticacao();
+        autenticacao = ConfiguracaoFireBase.getFireBaseAutenticacao();
         //autenticacao.signOut();
         //autenticacao.getInstance().signOut();
         if(autenticacao.getCurrentUser() != null){
